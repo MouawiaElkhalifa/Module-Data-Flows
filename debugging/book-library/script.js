@@ -1,4 +1,4 @@
-const  myLibrary = [];
+const myLibrary = [];
 
 window.addEventListener("load", function () {
   populateStorage();
@@ -31,8 +31,9 @@ function addBook() {
   const authorValue = authorInput.value.trim();
   const pagesValue = parseInt(pagesInput.value);
 
-  if (!titleValue || !authorValue || isNaN(pagesValue)) {
-    alert("Please fill all fields with valid information!");
+  /* MODIFIED: Added (pagesValue <= 0) to ensure only positive whole numbers are valid */
+  if (!titleValue || !authorValue || isNaN(pagesValue) || pagesValue <= 0) {
+    alert("Please fill all fields with valid information (Pages must be greater than 0)!");
     return;
   }
 
